@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+}
+
+.boderSquare {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  height: 70px;
+  width: 50%;
+  border-style: none;
+  border-width: 10px;
+  border-radius: 30px;
+  background: rgb(202, 186, 218);
+  box-shadow: 0 0 0 1px hsla(0, 0%, 100%, 0.3) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 1px hsla(0, 0%, 100%, 0.3);
+  font-family: "Microsoft YaHei UI";
+  color: rgb(84, 187, 36);
+}
+
+.LoginButton {
+  border-style: solid;
+  background: rgb(202, 186, 218);
+  border-width: 5px;
+  border-radius: 20px;
+  width: 90%;
+  border-color: aquamarine;
+}

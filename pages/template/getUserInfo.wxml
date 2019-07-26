@@ -1,0 +1,7 @@
+<template name="UserInfo">
+  <view class="boderSquare">
+    <button class="LoginButton" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+         点击登录
+    </button>
+  </view>
+</template>

@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.7.7",
 	"appid": "wxc8a3ac58568e9377",
-	"projectname": "jinianCrm",
+	"projectname": "ChinaCrm",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
