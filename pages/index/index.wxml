@@ -4,8 +4,12 @@
   <view class="userinfo">
     <template is="UserInfo" wx:if="{{!hasUserInfo && canIUse}}"></template>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
 </view>
+  <wux-wing-blank size="default">
+    <wux-card title="卡片标题" extra="额外内容" thumb="https://wux.cdn.cloverstd.com/logo.png">
+      <view slot="body">卡片内容</view>
+      <view slot="footer">尾部内容</view>
+    </wux-card>
+  </wux-wing-blank>

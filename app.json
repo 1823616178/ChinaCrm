@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/zhuye/zhuye",
     "pages/logs/logs"
   ],
   "window": {
@@ -9,5 +10,24 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "tabBar": {
+    "color": "#000000",
+    "position": "bottom",
+    "selectedColor": "#000000",
+    "backgroundColor": "#00000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/zhuye/zhuye",
+        "text": "日记"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "debug": true
 }

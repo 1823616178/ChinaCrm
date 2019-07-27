@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "wux-card": "../../static/wux/card/index",
+    "wux-wing-blank": "../../static/wux/wing-blank/index"
+  }
 }

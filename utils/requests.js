@@ -1,4 +1,4 @@
-let serverPath = "http://118.24.131.216:9527";
+let serverPath = "http://127.0.0.1";
 
 export function requests(url, data) {
   data = data || {};
