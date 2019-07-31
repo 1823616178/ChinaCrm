@@ -1,5 +1,6 @@
 /**index.wxss**/
 @import "../template/getUserInfo.wxss";
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -19,4 +20,14 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.wux-card__content {
+  font-size: 15px;
+  flex: 2;
+}
+
+.mobileCss {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f0f;
 }

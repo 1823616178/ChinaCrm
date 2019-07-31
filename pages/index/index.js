@@ -5,28 +5,45 @@ import {
   GetUserInfo,
 } from '../composen/Login.js'
 import {
-  OneRequests
+  OneRequests,
+  ApplyBusinessData
 } from '../../http/Home/action.js'
 import {
   WeChatUserInfo
 } from '../../http/Login/index.js'
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    QueryData: {
+      page: 1,
+      queryData: "",
+      queryPeople: "",
+      queryStatus: "",
+    },
+    CardListData: [],
+    displayValue1: '请选择',
+    SlectStausValue: "",
+    SlectStausOption: [{
+        title: "未指派",
+        value: "0"
+      },
+      {
+        title: "已申请",
+        value: "1"
+      },
+      {
+        title: "已指派",
+        value: "2"
+      }
+    ]
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  bindViewTapsssss: function($event) {
+    console.log($event)
   },
   onLoad: function() {
-    var data = {
-      page: 1
-    }
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -57,6 +74,59 @@ Page({
     }
   },
 
+  onReady() {
+    this.getFirmData()
+  },
+
+  getFirmData() {
+    wx.showLoading({
+      title: '加载中...',
+    })
+    OneRequests(this.data.QueryData).then((res) => {
+      this.setData({
+        CardListData: res.data.data
+      })
+      wx.hideLoading()
+    })
+  },
+  onValueChange(e) {
+    let arr = {
+      queryStatus: e.detail.value,
+    }
+
+    this.setData({
+      QueryData: Object.assign(this.data.QueryData, arr)
+    })
+    console.log(this.data.QueryData)
+  },
+  onConfirm() {
+    wx.showLoading({
+      title: '正在加载...',
+    })
+    OneRequests(this.data.QueryData).then(res => {
+      this.setData({
+        CardListData: res.data.data
+      })
+      wx.hideLoading()
+    })
+  },
+  ApplyBusiness(data) {
+    console.log(data)
+    let queryData = {
+      company_code: data.currentTarget.dataset.code.company_code
+    }
+    ApplyBusinessData(queryData).then(res => {
+      if (res.data.code == 1) {
+        this.getFirmData()
+      }
+    })
+  },
+  dialPhone(e) {
+    console.log(e)
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone,
+    })
+  },
   getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
     wx.getUserInfo({

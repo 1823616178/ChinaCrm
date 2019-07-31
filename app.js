@@ -2,6 +2,7 @@
 import {
   WeChatLogin
 } from './http/Login/index.js'
+import {ChangeXtoken} from './utils/store.js'
 App({
   onLaunch: function() {
     // 展示本地存储能力
@@ -17,9 +18,15 @@ App({
           this.globalData.openid = poson.data.login.openid
           this.globalData.session_key = poson.data.login.session_key
           this.globalData.access_token = poson.data.accessTokenData.access_token
+          wx.setStorage({
+            key: 'jwt',
+            data: poson.data.token,
+          })
         })
-        console.log(this.globalData.openid)
+        console.log(this.globalData.xToken)
+
       }
+
     })
     // 获取用户信息
     wx.getSetting({
@@ -41,9 +48,10 @@ App({
       }
     })
   },
-  globalData: {
+ globalData: {
     userInfo: null,
     session_key: "",
-    openid: ""
+    openid: "",
+    xToken:""
   }
 })
