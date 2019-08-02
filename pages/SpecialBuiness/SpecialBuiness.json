@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText": "特殊跟厂业务",
+  "usingComponents": {
+    "wux-card": "../../static/wux/card/index",
+    "wux-wing-blank": "../../static/wux/wing-blank/index",
+    "wux-accordion-group": "../../static/wux/accordion-group/index",
+    "wux-accordion": "../../static/wux/accordion/index",
+    "wux-tag": "../../static/wux/tag/index",
+    "wux-steps": "../../static/wux/steps/index",
+    "wux-step": "../../static/wux/step/index",
+    "wux-cell-group": "../../static/wux/cell-group/index",
+    "wux-cell": "../../static/wux/cell/index",
+    "wux-input": "../../static/wux/input/index",
+    "wux-row": "../../static/wux/row/index",
+    "wux-col": "../../static/wux/col/index",
+    "wux-icon": "../../static/wux/icon/index",
+    "wux-button": "../../static/wux/button/index",
+    "wux-popup": "../../static/wux/popup/index"
+  }
+}

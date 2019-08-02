@@ -1,11 +1,22 @@
 <!--index.wxml-->
 <import src="../template/getUserInfo" />
 
-<view>
+<wux-refresher id="refresherData" bind:refresh="onRefresh" scrollTop="{{scrollTop}}">
+  <view class="contarion">
+    <image src="../../static/img/HuaYao.jpg" class="Containimage" bindtap="getUserInfo"></image>
+    <view class="CardStyle">
+      <wux-avatar size="large" bodyStyle="height:70px;width:70px;border-radius=50px" src="{{userInfo.avatarUrl}}" />
+    </view>
+  </view>
+
   <view>
-    <wux-popup-select value="{{ SlectStausValue }}" options="{{ SlectStausOption }}" data-index="{{SlectStausValue}}" bind:valueChange="onValueChange" bind:confirm="onConfirm" >
+
+    <wux-popup-select value="{{ SlectStausValue }}" options="{{ SlectStausOption }}" data-index="{{SlectStausValue}}" bind:valueChange="onValueChange" bind:confirm="onConfirm">
       <wux-cell title="选择指派状态" is-link extra="{{ displayValue1 }}"></wux-cell>
     </wux-popup-select>
+    <!-- <wux-popup-select value="{{ SlectStausPeople }}" data-index="{{SlectStausPeople}}" bind:valueChange="onValueChange" bind:confirm="onConfirm">
+      <wux-cell title="选择指派业务员" is-link extra="{{ displayValue1 }}"></wux-cell>
+    </wux-popup-select> -->
   </view>
 
   <view wx:for="{{CardListData}}" wx:key="{{item.company_code}}">
@@ -15,28 +26,32 @@
           <wux-tag wx:if="{{item.status == 0}}" color="green">未指派</wux-tag>
           <wux-tag wx:if="{{item.status == 1}}" color="magenta">已申请</wux-tag>
           <wux-tag wx:if="{{item.status == 2}}" color="red">已指派</wux-tag>
+          <wux-tag color="orange" wx:if="{{item.status==1}}">申请人{{item.proposer}}</wux-tag>
+          <wux-tag color="orange" wx:if="{{item.status==2}}">指派人{{item.allocatedPerson}}</wux-tag>
           <wux-white-space />
-          <wux-accordion-group title="联系人列表">
+          <wux-accordion-group title="公司详情">
             <view wx:for="{{item.LoginUser}}" wx:key="{{item.user_id}}">
-              <wux-accordion title="{{item.real_name}}">
+              <wux-accordion title="联系人：{{item.real_name}}">
                 <view class="mobileCss" bindtap="dialPhone" data-Phone="{{item.mobile}}" data-UserName="{{item.real_name}}">
                   {{item.mobile}}
                 </view>
               </wux-accordion>
             </view>
           </wux-accordion-group>
+          <wux-accordion-group>
+            <wux-accordion title="公司地址" content="{{item.bl_address}}" wx:if="{{isSuper == 1 ||item.allocatedPersonId == userId }}"></wux-accordion>
+          </wux-accordion-group>
         </view>
         <view slot="footer">
-          <wux-button block type="calm" wx:if="{{item.status==0}}" size="small" bindtap="ApplyBusiness" data-code="{{item}}">申请指派</wux-button>
-          <wux-button block type="assertive" wx:if="{{item.status==1}}" size="small">取消申请</wux-button>
+          <wux-button block type="calm" wx:if="{{item.status==0}}" size="small" bindtap="ApplyBusiness" data-code="{{item}}" data-index="{{index}}">申请指派</wux-button>
+          <wux-button block type="assertive" wx:if="{{item.status==1}}" size="small" bindtap="cancleApply" data-code="{{item}}" data-index="{{index}}">取消申请</wux-button>
           <wux-tag block color="#f50" wx:if="{{item.status==2}}" size="small">已指派</wux-tag>
         </view>
       </wux-card>
     </wux-wing-blank>
     <wux-white-space />
   </view>
-</view>
-
+</wux-refresher>
 <view class="container">
   <view class="userinfo">
     <template is="UserInfo" wx:if="{{!hasUserInfo && canIUse}}"></template>

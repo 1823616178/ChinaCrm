@@ -1,0 +1,7 @@
+/* pages/SpecialBuiness/SpecialBuiness.wxss */
+.LogCss{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}

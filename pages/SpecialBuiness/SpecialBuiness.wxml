@@ -1,0 +1,43 @@
+<view>
+  <view wx:for="{{SpeciaBusData}}" wx:key="{{item.id}}">
+    <wux-wing-blank size="default">
+      <wux-card title="{{item.firmName}}" extra="{{item.allocatedPerson}}" thumb-style="border-radius: 50%;">
+        <view slot="body">
+          <wux-tag color="orange">特殊业务</wux-tag>
+          <wux-accordion-group title="联系人">
+            <wux-accordion title="{{item.ContactUser}}" content="{{item.ContactUserPhone}}"></wux-accordion>
+          </wux-accordion-group>
+          <wux-accordion-group>
+            <wux-accordion title="公司地址" content="{{item.firmAddr}}"></wux-accordion>
+          </wux-accordion-group>
+        </view>
+        <view slot="footer" style="width:100%">
+          <wux-accordion-group>
+            <wux-accordion title="日志">
+              <wux-steps direction="vertical">
+                <view wx:for="{{item.UserLog}}" wx:key="{{item.Logid}}" class="LogCss">
+                  <view style="width:80%">
+                    <wux-step status="finish" title="{{item.editorUser}}{{item.creatDate}}" content="{{item.tailLog}}">
+                    </wux-step>
+                  </view>
+                  <view style="width:20%">
+                    <wux-button block type="calm" size="small" bindtap="EditorLog" data-item="{{item}}">修改日志</wux-button>
+                  </view>
+                </view>
+              </wux-steps>
+              <wux-button block type="energized" size="small" bindtap="addLogData" data-Alldata="{{item}}" data-index="{{index}}">添加日志</wux-button>
+            </wux-accordion>
+          </wux-accordion-group>
+        </view>
+      </wux-card>
+    </wux-wing-blank>
+  </view>
+  <wux-popup position="bottom" visible="{{ SyncDaigPopul }}" bind:close="SyncDaigPopulClose">
+    <wux-cell-group title="跟踪日志">
+      <wux-cell hover-class="none">
+        <wux-input value="{{EditorLogText}}" controlled="true" type="text" bind:change="EditorOnChange"></wux-input>
+      </wux-cell>
+      <wux-button block type="balanced" bindtap="confirmLogData">确定</wux-button>
+    </wux-cell-group>
+  </wux-popup>
+</view>

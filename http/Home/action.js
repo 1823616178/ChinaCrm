@@ -9,3 +9,7 @@ export function OneRequests(data) {
 export function ApplyBusinessData(data) {
   return requests("/Busin/ApplyBusinessData", data)
 }
+
+export function cancleApplyFunc(data) {
+  return requests("/Busin/cancleApplyFunc", data)
+}

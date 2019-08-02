@@ -1,6 +1,7 @@
 /**index.wxss**/
 @import "../template/getUserInfo.wxss";
 
+@import "../MyClient/MyClient.wxss";
 .userinfo {
   display: flex;
   flex-direction: column;

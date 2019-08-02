@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/MyClient/MyClient",
     "pages/zhuye/zhuye",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/SpecialBuiness/SpecialBuiness"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,11 +20,15 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "合作企业",
+        "iconPath": "./static/img/notebook.png",
+        "selectedIconPath": "./static/img/notebook.png"
       },
       {
-        "pagePath": "pages/zhuye/zhuye",
-        "text": "日记"
+        "pagePath": "pages/MyClient/MyClient",
+        "text": "我的",
+        "iconPath": "./static/img/group.png",
+        "selectedIconPath": "./static/img/group.png"
       }
     ]
   },

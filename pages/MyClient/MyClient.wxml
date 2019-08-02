@@ -1,0 +1,14 @@
+<wux-white-space size="default" />
+<view class="contarion">
+  <image src="../../static/img/HuaYao.jpg" class="Containimage"></image>
+  <view class="CardStyle">
+    <wux-avatar size="large" bodyStyle="height:70px;width:70px;border-radius=50px" src="{{UserInfo.avatarUrl}}" />
+  </view>
+</view>
+<wux-divider dashed text="华耀管理系统" />
+
+<wux-grids bordered="{{ false }}">
+  <wux-grid thumb="../../../static/img/files-and-folders.png" label="特殊跟厂业务" bind:click="SkipPage"/>
+  <wux-grid thumb="../../../static/img/online-conference.png" label="我的客户" />
+  <wux-grid thumb="../../../static/img/folder.png" label="我的销售" />
+</wux-grids>

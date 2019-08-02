@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "wux-white-space": "../../static/wux/white-space/index",
+    "wux-row": "../../static/wux/row/index",
+    "wux-col": "../../static/wux/col/index",
+    "wux-image": "../../static/wux/image/index",
+    "wux-divider": "../../static/wux/divider/index",
+    "wux-avatar": "../../static/wux/avatar/index",
+    "wux-icon": "../../static/wux/icon/index",
+    "wux-grids": "../../static/wux/grids/index",
+    "wux-grid": "../../static/wux/grid/index"
+  }
+}

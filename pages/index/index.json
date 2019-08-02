@@ -13,6 +13,8 @@
     "wux-picker": "../../static/wux/picker/index",
     "wux-cell-group": "../../static/wux/cell-group/index",
     "wux-cell": "../../static/wux/cell/index",
-    "wux-popup-select": "../../static/wux/popup-select/index"
+    "wux-avatar": "../../static/wux/avatar/index",
+    "wux-popup-select": "../../static/wux/popup-select/index",
+    "wux-refresher": "../../static/wux/refresher/index"
   }
 }

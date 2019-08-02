@@ -6,3 +6,6 @@ export function WeChatLogin(data){
 export function WeChatUserInfo(data){
   return requests("/WeChat/AuthUserInfo",data);
 }
+export function WeChatAllData(){
+  return requests("/WeChat/WeChatAllData");
+}
